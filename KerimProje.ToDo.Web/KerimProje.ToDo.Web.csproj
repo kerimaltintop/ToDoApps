@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KerimProje.ToDo.Business\KerimProje.ToDo.Business.csproj" />
+  </ItemGroup>
+
 </Project>
