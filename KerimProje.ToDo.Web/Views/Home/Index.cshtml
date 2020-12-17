@@ -10,17 +10,13 @@
     <title>Index</title>
 </head>
 <body>
-    <p>Home Controller  Index Action </p>
+    @*<p>Home Controller  Index Action </p>*@
+    @*<partial name="_Categories" />*@
+    @*<kerim get-data="Bil. Müh. Kerim"></kerim>*@
+    @*<a asp-action="Index" asp-controller="Home" asp-route-id="1">Link</a>*@
 
 
-    <partial name="_Categories" />
-
-    <kerim get-data="Bil. Müh. Kerim"></kerim>
-
-
-    <a asp-action="Index" asp-controller="Home" asp-route-id="1">Link</a>
-
-
+    @await Component.InvokeAsync("Products")
 
 
 </body>
