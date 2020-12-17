@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -11,6 +10,18 @@
     <title>Index</title>
 </head>
 <body>
-    <p>Anasayfa Index Action</p>
+    <p>Home Controller  Index Action </p>
+
+
+    <partial name="_Categories" />
+
+    <kerim get-data="Bil. Müh. Kerim"></kerim>
+
+
+    <a asp-action="Index" asp-controller="Home" asp-route-id="1">Link</a>
+
+
+
+
 </body>
 </html>
