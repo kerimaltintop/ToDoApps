@@ -1,8 +1,9 @@
-﻿@{
-    Layout = null;
-}
-
+﻿
 <!DOCTYPE html>
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <html>
 <head>
@@ -10,13 +11,16 @@
     <title>Index</title>
 </head>
 <body>
-    @*<p>Home Controller  Index Action </p>*@
+   <p class="text-danger lead">Home Controller  Index Action </p>
+
+
+
     @*<partial name="_Categories" />*@
     @*<kerim get-data="Bil. Müh. Kerim"></kerim>*@
     @*<a asp-action="Index" asp-controller="Home" asp-route-id="1">Link</a>*@
 
 
-    @await Component.InvokeAsync("Products")
+    @*@await Component.InvokeAsync("Products")*@
 
 
 </body>

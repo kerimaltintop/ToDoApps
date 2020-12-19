@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KerimProje.ToDo.DataAccess", "KerimProje.ToDo.DataAccess\KerimProje.ToDo.DataAccess.csproj", "{A1666083-4E82-4E54-B659-59218757A1DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.DataAccess", "KerimProje.ToDo.DataAccess\KerimProje.ToDo.DataAccess.csproj", "{A1666083-4E82-4E54-B659-59218757A1DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KerimProje.ToDo.Business", "KerimProje.ToDo.Business\KerimProje.ToDo.Business.csproj", "{5A81ACE9-92AE-46C8-9B03-508CE2A221AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.Business", "KerimProje.ToDo.Business\KerimProje.ToDo.Business.csproj", "{5A81ACE9-92AE-46C8-9B03-508CE2A221AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KerimProje.ToDo.Entities", "KerimProje.ToDo.Entities\KerimProje.ToDo.Entities.csproj", "{D71864D3-0E18-4767-A4A4-EFD5354A4B3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.Entities", "KerimProje.ToDo.Entities\KerimProje.ToDo.Entities.csproj", "{D71864D3-0E18-4767-A4A4-EFD5354A4B3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KerimProje.ToDo.Web", "KerimProje.ToDo.Web\KerimProje.ToDo.Web.csproj", "{A481BDE9-D574-4719-AB54-1D8741CD199E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.Web", "KerimProje.ToDo.Web\KerimProje.ToDo.Web.csproj", "{A481BDE9-D574-4719-AB54-1D8741CD199E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
