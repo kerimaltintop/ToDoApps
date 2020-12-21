@@ -1,13 +1,10 @@
 using KerimProje.ToDo.Web.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Routing.Constraints;
+
 
 namespace KerimProje.ToDo.Web
 {
@@ -27,7 +24,7 @@ namespace KerimProje.ToDo.Web
                 app.UseDeveloperExceptionPage();
             }
 
-          
+
             app.UseRouting();
 
             app.UseCustomStaticFiles();
@@ -37,7 +34,7 @@ namespace KerimProje.ToDo.Web
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}"
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
 
                 //endpoints.MapGet("/", async context =>
