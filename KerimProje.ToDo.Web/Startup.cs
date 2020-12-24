@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Routing.Constraints;
-
+using KerimProje.ToDo.Web.Constraints;
 
 namespace KerimProje.ToDo.Web
 {
@@ -32,15 +32,25 @@ namespace KerimProje.ToDo.Web
             app.UseEndpoints(endpoints =>
             {
 
+                //endpoints.MapControllerRoute(
+                //    name: "programmingRoute",
+                //      pattern: "programming/{lang}",
+                //      defaults: new { controllers = "Home", action = "Index" },
+                //      constraints: new { lang = new Programming() }
+                //    );
+
+
+
+                endpoints.MapControllerRoute(
+                   name: "areas",
+                   pattern: "{area}/{controller=Home}/{action=Index}/{id?}"
+                    );
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
-
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
             });
         }
     }
