@@ -2,7 +2,7 @@
 
 namespace KerimProje.ToDo.DataAccess.Interfaces
 {
-    public interface IUserDal : IGenericDal<User>
+    public interface ITaskDal : IGenericDal<Task>
     {
 
     }

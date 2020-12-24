@@ -6,35 +6,35 @@ using System.Collections.Generic;
 
 namespace KerimProje.ToDo.Business.Concrete
 {
-    public class WorkManager : IWorkService
+    public class TaskManager : ITaskService
     {
-        private readonly EfWorkRepository efWorkRepository;
+        private readonly EfTaskRepository efWorkRepository;
 
-        public WorkManager()
+        public TaskManager()
         {
-            efWorkRepository = new EfWorkRepository();
+            efWorkRepository = new EfTaskRepository();
         }
-        public void Delete(Work table)
+        public void Delete(Task table)
         {
             efWorkRepository.Delete(table);
         }
 
-        public List<Work> GetAll()
+        public List<Task> GetAll()
         {
             return efWorkRepository.GetAll();
         }
 
-        public Work GetById(int id)
+        public Task GetById(int id)
         {
             return efWorkRepository.GetById(id);
         }
 
-        public void Save(Work table)
+        public void Save(Task table)
         {
             efWorkRepository.Save(table);
         }
 
-        public void Update(Work table)
+        public void Update(Task table)
         {
             efWorkRepository.Update(table);
         }

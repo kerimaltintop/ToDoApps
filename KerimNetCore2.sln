@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.Business", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.Entities", "KerimProje.ToDo.Entities\KerimProje.ToDo.Entities.csproj", "{D71864D3-0E18-4767-A4A4-EFD5354A4B3D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KerimProje.ToDo.Web", "KerimProje.ToDo.Web\KerimProje.ToDo.Web.csproj", "{A481BDE9-D574-4719-AB54-1D8741CD199E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{D71864D3-0E18-4767-A4A4-EFD5354A4B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D71864D3-0E18-4767-A4A4-EFD5354A4B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D71864D3-0E18-4767-A4A4-EFD5354A4B3D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A481BDE9-D574-4719-AB54-1D8741CD199E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A481BDE9-D574-4719-AB54-1D8741CD199E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A481BDE9-D574-4719-AB54-1D8741CD199E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A481BDE9-D574-4719-AB54-1D8741CD199E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

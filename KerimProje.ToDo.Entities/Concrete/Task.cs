@@ -3,14 +3,19 @@ using System;
 
 namespace KerimProje.ToDo.Entities.Concrete
 {
-    public class Work : ITable
+    public class Task : ITable
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Explanation { get; set; }
         public bool Status { get; set; }
         public DateTime CreationDate { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
+       
+        public int UrgencyId { get; set; }
+        public Urgency Urgency { get; set; }
+       
+        
+        public int? AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
