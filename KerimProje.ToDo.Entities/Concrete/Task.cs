@@ -1,5 +1,6 @@
 ﻿using KerimProje.ToDo.Entities.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace KerimProje.ToDo.Entities.Concrete
 {
@@ -17,5 +18,7 @@ namespace KerimProje.ToDo.Entities.Concrete
         
         public int? AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+
+        public List<Report> Reports { get; set; }
     }
 }

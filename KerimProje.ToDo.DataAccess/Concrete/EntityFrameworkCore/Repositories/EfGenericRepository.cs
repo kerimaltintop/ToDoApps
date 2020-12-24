@@ -14,26 +14,22 @@ namespace KerimProje.ToDo.DataAccess.Concrete.EntityFrameworkCore.Repositories
             context.Set<Table>().Remove(table);
             context.SaveChanges();
         }
-
         public List<Table> GetAll()
         {
             using var context = new ToDoContext();
             return context.Set<Table>().ToList();
         }
-
         public Table GetById(int id)
         {
             using var context = new ToDoContext();
             return context.Set<Table>().Find(id);
         }
-
         public void Save(Table table)
         {
             using var context = new ToDoContext();
             context.Set<Table>().Add(table);
             context.SaveChanges();
         }
-
         public void Update(Table table)
         {
             using var context = new ToDoContext();

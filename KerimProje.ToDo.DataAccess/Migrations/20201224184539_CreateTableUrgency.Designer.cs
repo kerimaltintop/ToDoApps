@@ -4,14 +4,16 @@ using KerimProje.ToDo.DataAccess.Concrete.EntityFrameworkCore.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KerimProje.ToDo.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20201224184539_CreateTableUrgency")]
+    partial class CreateTableUrgency
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,8 +78,7 @@ namespace KerimProje.ToDo.DataAccess.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -100,8 +101,7 @@ namespace KerimProje.ToDo.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -121,31 +121,6 @@ namespace KerimProje.ToDo.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.Report", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Definition")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Detail")
-                        .HasColumnType("ntext");
-
-                    b.Property<int>("TaskId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TaskId");
-
-                    b.ToTable("Reports");
                 });
 
             modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.Task", b =>
@@ -191,8 +166,7 @@ namespace KerimProje.ToDo.DataAccess.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Definition")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -300,23 +274,11 @@ namespace KerimProje.ToDo.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.Report", b =>
-                {
-                    b.HasOne("KerimProje.ToDo.Entities.Concrete.Task", "Task")
-                        .WithMany("Reports")
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Task");
-                });
-
             modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.Task", b =>
                 {
                     b.HasOne("KerimProje.ToDo.Entities.Concrete.AppUser", "AppUser")
                         .WithMany("Tasks")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("KerimProje.ToDo.Entities.Concrete.Urgency", "Urgency")
                         .WithMany("Tasks")
@@ -383,11 +345,6 @@ namespace KerimProje.ToDo.DataAccess.Migrations
             modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.AppUser", b =>
                 {
                     b.Navigation("Tasks");
-                });
-
-            modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.Task", b =>
-                {
-                    b.Navigation("Reports");
                 });
 
             modelBuilder.Entity("KerimProje.ToDo.Entities.Concrete.Urgency", b =>

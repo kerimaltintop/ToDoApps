@@ -16,11 +16,15 @@ namespace KerimProje.ToDo.DataAccess.Concrete.EntityFrameworkCore.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new TaskMap());
+            modelBuilder.ApplyConfiguration(new UrgencyMap());
+            modelBuilder.ApplyConfiguration(new AppUserMap());
+            modelBuilder.ApplyConfiguration(new ReportMap());
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Urgency> Urgencys { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
     }
 }
