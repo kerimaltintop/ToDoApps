@@ -1,4 +1,4 @@
-﻿
+﻿@model List<TaskListViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -6,3 +6,38 @@
 
 <h1>Index</h1>
 
+@if (Model.Count != 0)
+{
+    <a asp-action="AddTask" class="btn btn-info btn-sm">Add Task</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Explanation</th>
+            <th>Status</th>
+            <th>UrgencyId</th>
+            <th>Operation</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Explanation</td>
+                <td>@item.Status</td>
+                <td>@item.UrgencyId</td>
+                <td>
+                    <a href="">Update</a>
+                    <a href="">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="p-3 text-center mt-3">
+        <p class="lead">
+            No task registered in the system.
+        </p>
+        <a asp-action="AddTask" class="btn btn-info btn-sm">Add Task</a>
+    </div>
+}
