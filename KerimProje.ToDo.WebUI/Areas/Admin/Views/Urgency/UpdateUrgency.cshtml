@@ -1,19 +1,19 @@
-﻿@model UrgencyAddViewModel
-
+﻿@model UrgencyUpdateViewModel
 @{
-    ViewData["Title"] = "AddUrgency";
+    ViewData["Title"] = "UpdateUrgency";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddUrgency</h1>
+<h1>UpdateUrgency</h1>
 
-<form class="w-75 mx-auto p-3" method="post">
+<form asp-action="UpdateUrgency" class="w-75 mx-auto p-3" method="post">
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label asp-for="Definition"></label>
         <span asp-validation-for="Definition" class="text-danger"></span>
         <input type="text" asp-for="Definition" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-info btn-sm">Save</button>
+    <button type="submit" class="btn btn-info btn-sm">Update</button>
 </form>
 
 @section JavaScriptCode{
