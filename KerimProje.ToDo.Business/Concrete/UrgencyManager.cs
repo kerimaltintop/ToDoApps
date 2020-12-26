@@ -1,5 +1,5 @@
 ﻿using KerimProje.ToDo.Business.Interfaces;
-using KerimProje.ToDo.DataAccess.Concrete.EntityFrameworkCore.Repositories;
+using KerimProje.ToDo.DataAccess.Interfaces;
 using KerimProje.ToDo.Entities.Concrete;
 using System.Collections.Generic;
 
@@ -7,30 +7,30 @@ namespace KerimProje.ToDo.Business.Concrete
 {
     public class UrgencyManager : IUrgencyService
     {
-        private readonly EfUrgencyRepository efUrgencyRepository;
-        public UrgencyManager()
+        private readonly IUrgencyDal _urgencyDal;
+        public UrgencyManager(IUrgencyDal urgencyDal)
         {
-            efUrgencyRepository = new EfUrgencyRepository();
+            _urgencyDal = urgencyDal;
         }
         public void Delete(Urgency table)
         {
-            efUrgencyRepository.Delete(table);
+            _urgencyDal.Delete(table);
         }
         public List<Urgency> GetAll()
         {
-            return efUrgencyRepository.GetAll();
+            return _urgencyDal.GetAll();
         }
         public Urgency GetById(int id)
         {
-            return efUrgencyRepository.GetById(id);
+            return _urgencyDal.GetById(id);
         }
         public void Save(Urgency table)
         {
-            efUrgencyRepository.Save(table);
+            _urgencyDal.Save(table);
         }
         public void Update(Urgency table)
         {
-            efUrgencyRepository.Update(table);
+            _urgencyDal.Update(table);
         }
     }
 }

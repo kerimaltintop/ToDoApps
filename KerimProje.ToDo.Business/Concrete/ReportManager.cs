@@ -1,5 +1,5 @@
 ﻿using KerimProje.ToDo.Business.Interfaces;
-using KerimProje.ToDo.DataAccess.Concrete.EntityFrameworkCore.Repositories;
+using KerimProje.ToDo.DataAccess.Interfaces;
 using KerimProje.ToDo.Entities.Concrete;
 using System.Collections.Generic;
 
@@ -7,30 +7,30 @@ namespace KerimProje.ToDo.Business.Concrete
 {
     public class ReportManager : IReportService
     {
-        private readonly EfReportRepository efReportRepository;
-        public ReportManager()
+        private readonly IReportDal _reportDal;
+        public ReportManager(IReportDal reportDal)
         {
-            efReportRepository = new EfReportRepository();
+            _reportDal = reportDal;
         }
         public void Delete(Report table)
         {
-            efReportRepository.Delete(table);
+            _reportDal.Delete(table);
         }
         public List<Report> GetAll()
         {
-            return efReportRepository.GetAll();
+            return _reportDal.GetAll();
         }
         public Report GetById(int id)
         {
-            return efReportRepository.GetById(id);
+            return _reportDal.GetById(id);
         }
         public void Save(Report table)
         {
-            efReportRepository.Save(table);
+            _reportDal.Save(table);
         }
         public void Update(Report table)
         {
-            efReportRepository.Update(table);
+            _reportDal.Update(table);
         }
     }
 }
