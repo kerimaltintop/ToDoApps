@@ -59,5 +59,37 @@ namespace KerimProje.ToDo.WebUI.Areas.Admin.Controllers
             }
             return View(model);
         }
+
+        public IActionResult UpdateTask(int id)
+        {
+            TempData["Active"] = "task";
+            var task = _taskService.GetById(id);
+            TaskUpdateViewModel model = new TaskUpdateViewModel
+            {
+                Id = task.Id,
+                Name = task.Name,
+                Explanation = task.Explanation,
+                UrgencyId = task.UrgencyId
+            };
+            ViewBag.UrgencyList = new SelectList(_urgencyService.GetAll(), "Id", "Definition", task.UrgencyId);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateTask(TaskUpdateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _taskService.Update(new Task
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    Explanation = model.Explanation,
+                    UrgencyId = model.UrgencyId
+                });
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
 }
