@@ -10,12 +10,12 @@ namespace KerimProje.ToDo.Entities.Concrete
         public string Name { get; set; }
         public string Explanation { get; set; }
         public bool Status { get; set; }
-        public DateTime CreationDate { get; set; }
-       
+        public DateTime CreationDate { get; set; } = DateTime.Now;
+
         public int UrgencyId { get; set; }
         public Urgency Urgency { get; set; }
-       
-        
+
+
         public int? AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 

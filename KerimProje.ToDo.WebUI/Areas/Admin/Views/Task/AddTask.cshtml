@@ -1,0 +1,35 @@
+﻿@model TaskAddViewModel
+@{
+    ViewData["Title"] = "AddTask";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddTask</h1>
+
+<form asp-action="AddTask" method="post" class="w-75 mx-auto p-3">
+    <div class="form-group">
+        <label>Name :</label>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <input class="form-control" type="text" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label as>Explanation :</label>
+        <span asp-validation-for="Explanation" class="text-danger"></span>
+        <textarea class="form-control" asp-for="Explanation"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Select Urgency:</label>
+        <span asp-validation-for="UrgencyId" class="text-danger"></span>
+        <select asp-for="UrgencyId" class="form-control" asp-items="ViewBag.UrgencyList">
+            <option hidden value="-1">Select</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-info btn-sm">Save</button>
+
+</form>
+
+@section JavaScriptCode{
+    <script src="~/lib/jqueryValidate/jquery.validate.min.js"></script>
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+}

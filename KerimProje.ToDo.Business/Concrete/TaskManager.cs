@@ -24,6 +24,12 @@ namespace KerimProje.ToDo.Business.Concrete
         {
             return _taskDal.GetById(id);
         }
+
+        public List<Task> GetWithUrgencyNotComplete()
+        {
+            return _taskDal.GetWithUrgencyNotComplete();
+        }
+
         public void Save(Task table)
         {
             _taskDal.Save(table);
