@@ -14,5 +14,10 @@ namespace KerimProje.ToDo.WebUI.Controllers
         {
             return View();
         }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
