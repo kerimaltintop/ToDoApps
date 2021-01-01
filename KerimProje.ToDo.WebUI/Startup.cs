@@ -6,15 +6,15 @@ using KerimProje.ToDo.DataAccess.Interfaces;
 using KerimProje.ToDo.Entities.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace KerimProje.ToDo.WebUI
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ITaskService, TaskManager>();
@@ -27,13 +27,40 @@ namespace KerimProje.ToDo.WebUI
 
 
             services.AddDbContext<ToDoContext>();
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ToDoContext>();
+
+            services.AddIdentity<AppUser, AppRole>(opt =>
+            {
+                opt.Password.RequireDigit = false;
+                opt.Password.RequireUppercase = false;
+                opt.Password.RequiredLength = 1;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireNonAlphanumeric = false;
+            })
+                .AddEntityFrameworkStores<ToDoContext>();
+
+
+
+            //Cookie Yapýlandýrmasý ayarlarý
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.Cookie.Name = "ToDoCookie";
+                opt.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
+                opt.Cookie.HttpOnly = true;
+                opt.ExpireTimeSpan = TimeSpan.FromDays(20);
+                opt.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest;
+                opt.LoginPath = "/Home/Index";
+            });
+
+
+
+
+
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -41,6 +68,9 @@ namespace KerimProje.ToDo.WebUI
             }
 
             app.UseRouting();
+
+            IdentityInitializer.SeedData(userManager, roleManager).Wait();
+
             app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>

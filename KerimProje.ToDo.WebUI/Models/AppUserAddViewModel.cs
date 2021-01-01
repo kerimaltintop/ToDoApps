@@ -10,20 +10,22 @@ namespace KerimProje.ToDo.WebUI.Models
 
         [Required(ErrorMessage = "Password is required!")]
         [Display(Name = "Password :")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Compare("Password", ErrorMessage = "Passwords do not match!")]
         [Display(Name = "Confirm Password :")]
+        [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
 
-        [Required(ErrorMessage = "Passwords do not match!")]
-        [Display(Name = "Confirm Password :")]
+        [Required(ErrorMessage = "Email is required")]
+        [Display(Name = "Email :")]
         [EmailAddress(ErrorMessage = "Invalid Mail!")]
         public string Email { get; set; }
 
 
-        [Required(ErrorMessage = "Email is required!")]
+        [Required(ErrorMessage = "Name is required!")]
         [Display(Name = "Name :")]
         public string Name { get; set; }
 
