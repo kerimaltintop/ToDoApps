@@ -69,6 +69,11 @@ namespace KerimProje.ToDo.WebUI
 
             app.UseRouting();
 
+
+            //Rol iþlemleri ve giriþ iþlemleri için
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             IdentityInitializer.SeedData(userManager, roleManager).Wait();
 
             app.UseStaticFiles();
