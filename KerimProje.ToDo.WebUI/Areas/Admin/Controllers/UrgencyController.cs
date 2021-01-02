@@ -1,11 +1,13 @@
 ﻿using KerimProje.ToDo.Business.Interfaces;
 using KerimProje.ToDo.Entities.Concrete;
 using KerimProje.ToDo.WebUI.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace KerimProje.ToDo.WebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class UrgencyController : Controller
     {
