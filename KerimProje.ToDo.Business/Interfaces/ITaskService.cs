@@ -6,5 +6,7 @@ namespace KerimProje.ToDo.Business.Interfaces
     public interface ITaskService : IGenericService<Task>
     {
         List<Task> GetWithUrgencyNotComplete();
+        List<Task> GetAllTable();
+
     }
 }

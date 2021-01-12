@@ -20,6 +20,12 @@ namespace KerimProje.ToDo.Business.Concrete
         {
             return _taskDal.GetAll();
         }
+
+        public List<Task> GetAllTable()
+        {
+            return _taskDal.GetAllTable();
+        }
+
         public Task GetById(int id)
         {
             return _taskDal.GetById(id);
