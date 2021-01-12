@@ -8,7 +8,7 @@ namespace KerimProje.ToDo.WebUI.Areas.Admin.Controllers
     [Area("Admin")]
     public class TaskOrderController : Controller
     {
-    
+
         IAppUserService _appUserService;
         public TaskOrderController(IAppUserService appUserService)
         {
@@ -17,8 +17,8 @@ namespace KerimProje.ToDo.WebUI.Areas.Admin.Controllers
         public IActionResult Index()
         {
             TempData["Active"] = "taskOrder";
-            var model = _appUserService.GetNotAdmin();
-            return View(model);
+            //var model = _appUserService.GetNotAdmin();
+            return View();
         }
     }
 }
