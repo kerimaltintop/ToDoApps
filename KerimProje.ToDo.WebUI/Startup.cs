@@ -20,10 +20,13 @@ namespace KerimProje.ToDo.WebUI
             services.AddScoped<ITaskService, TaskManager>();
             services.AddScoped<IUrgencyService, UrgencyManager>();
             services.AddScoped<IReportService, ReportManager>();
+            services.AddScoped<IAppUserService, AppUserManager>();
 
+         
             services.AddScoped<ITaskDal, EfTaskRepository>();
             services.AddScoped<IUrgencyDal, EfUrgencyRepository>();
             services.AddScoped<IReportDal, EfReportRepository>();
+            services.AddScoped<IAppUserDal, EfAppUserRepository>();
 
 
             services.AddDbContext<ToDoContext>();

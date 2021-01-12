@@ -1,9 +1,10 @@
-﻿using KerimProje.ToDo.Entities.Interfaces;
+﻿using KerimProje.ToDo.Entities.Concrete;
+using KerimProje.ToDo.Entities.Interfaces;
 using System.Collections.Generic;
 
 namespace KerimProje.ToDo.DataAccess.Interfaces
 {
-    public interface IGenericDal<Table> where Table : class, ITable, new()
+    public interface IGenericDal<Table> 
     {
         void Save(Table table);
         void Delete(Table table);
